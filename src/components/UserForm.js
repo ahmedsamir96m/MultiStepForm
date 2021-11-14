@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PersonalDetails from './PersonalDetaial';
+import PersonalDetails from './PersonalDetails';
 import UserDetails from './UserDetails'
 
 export class UserForm extends Component {
