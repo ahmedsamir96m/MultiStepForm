@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PersonalDetails from './PersonalDetails';
 import UserDetails from './UserDetails'
 import Confirm from './Confirm'
-
+import Success from './Success'
 export class UserForm extends Component {
     state = {
         step: 1,
@@ -27,14 +27,28 @@ export class UserForm extends Component {
     prevStep = () => {
         const { step } = this.state;
         this.setState({
-            step: step - 1 
+            step: step - 1,
         })
     }
 
     // Handle Changing Fields
-    handleFieldsChange = input => e => [
+    handleFieldsChange = input => e => {
         this.setState({[input]: e.target.value})
-    ]
+    }
+
+    // Handle New Record After Submission (back to step 1 & resets the state)
+    handleNewRecord = () => {
+        this.setState({
+            step: 1,
+            firstName: '',
+            lastName: '',
+            occupation: '',
+            eMail: '',
+            city: '',
+            bio: '',
+            phone: '',
+        })
+    }
 
 
     render() {
@@ -77,7 +91,11 @@ export class UserForm extends Component {
                 break;
             case 4: 
                 return (
-                    <h1>Submission Done</h1>
+                    <Success
+                        prevStep = {this.prevStep}
+                        handleNewRecord = {this.handleNewRecord}
+                    >
+                    </Success>    
                 )
             default:
                 return (
