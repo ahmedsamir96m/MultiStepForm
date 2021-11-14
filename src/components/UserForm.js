@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import UserDetails from './UserDetails'
 
 export class UserForm extends Component {
     state = {
@@ -30,7 +31,7 @@ export class UserForm extends Component {
 
     // Handle Changing Fields
     handleFieldsChange = input => e => [
-        this.state({[input]: e.target.value})
+        this.setState({[input]: e.target.value})
     ]
 
 
@@ -43,12 +44,11 @@ export class UserForm extends Component {
         switch (step) {
             case 1:
                 return (
-                    // <UserDetails
-                    //     nextStep = {this.nextStep}
-                    //     handleFieldsChange = {this.handleFieldsChange}
-                    //     values = {values}
-                    // ></UserDetails>
-                    <h1>User Details</h1>
+                    <UserDetails
+                        nextStep = {this.nextStep}
+                        handleFieldsChange = {this.handleFieldsChange}
+                        values = {values}
+                    ></UserDetails>
                 )
                 break;
 
