@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PersonalDetails from './PersonalDetaial';
 import UserDetails from './UserDetails'
 
 export class UserForm extends Component {
@@ -54,7 +55,13 @@ export class UserForm extends Component {
 
             case 2:
                 return (
-                    <h1>Personal Details</h1>
+                    <PersonalDetails
+                        prevStep = {this.prevStep}
+                        handleFieldsChange = {this.handleFieldsChange}
+                        values = {values}
+                    >
+
+                    </PersonalDetails>
                 )
                 break;
             case 3:
